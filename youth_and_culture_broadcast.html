@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>青年视角下的中华文化传播</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #fc466b, #3f5efb);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .intro-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        /* 新增：统一的卡片式节(section)样式，供各页面主要内容区复用 */
+        .card-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .quote-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #fc466b;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        .tabs {
+            display: flex;
+            margin: 2rem 0;
+        }
+        .tab-nav {
+            width: 200px;
+            background-color: white;
+            border-radius: 8px 0 0 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .tab-btn {
+            padding: 1rem;
+            width: 100%;
+            text-align: left;
+            background: none;
+            border: none;
+            border-left: 3px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            background-color: #f8f9fa;
+            border-left: 3px solid #3f5efb;
+            font-weight: bold;
+        }
+        .tab-content {
+            flex: 1;
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0 8px 8px 0;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        .youth-perspective {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #f8f9fa;
+            border-radius: 6px;
+        }
+        .survey-results {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            background-color: #e6f7ff;
+            border-radius: 6px;
+        }
+        .trend-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .trend-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+        .trend-card:hover {
+            transform: translateY(-5px);
+        }
+        .trend-card-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: #fc466b;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .trend-card-img {
+            width: 100%;
+            height: 180px;
+            background-color: #ddd;
+            background-size: cover;
+            background-position: center;
+        }
+        .trend-card-body {
+            padding: 1.5rem;
+        }
+        .challenges-solutions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .cs-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .cs-card-header {
+            background-color: #3f5efb;
+            color: white;
+            padding: 1rem 1.5rem;
+        }
+        .cs-card-body {
+            padding: 1.5rem;
+        }
+        .quote-author {
+            text-align: right;
+            font-size: 0.9rem;
+            font-style: normal;
+            margin-top: 0.5rem;
+        }
+        .interactive-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin: 2rem 0;
+        }
+        .quiz-container {
+            margin-top: 1.5rem;
+        }
+        .quiz-question {
+            margin-bottom: 1.5rem;
+        }
+        .quiz-options {
+            margin-top: 0.5rem;
+        }
+        .quiz-option {
+            display: block;
+            padding: 0.8rem 1rem;
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        .quiz-option:hover {
+            background-color: #e9ecef;
+        }
+        .quiz-option.selected {
+            background-color: #3f5efb;
+            color: white;
+        }
+        .quiz-result {
+            margin-top: 1.5rem;
+            padding: 1rem;
+            border-radius: 5px;
+            display: none;
+        }
+        .comment-section {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-top: 2rem;
+        }
+        .comment-form textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            margin: 1rem 0;
+        }
+        .comment-form button {
+            background-color: #3f5efb;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .comments-container {
+            margin-top: 1.5rem;
+        }
+        .comment {
+            padding: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .highlight {
+            background-color: #ffecb3;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        @media (max-width: 768px) {
+            .tabs {
+                flex-direction: column;
+            }
+            .tab-nav {
+                width: 100%;
+                border-radius: 8px 8px 0 0;
+            }
+            .tab-content {
+                border-radius: 0 0 8px 8px;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>青年视角下的中华文化传播</h1>
+        <p>新时代青年如何赋能中华文化的创新表达与世界对话</p>
+    </header>
+
+    <nav>
+        <a href="文化自信的双维度.html">文化自信双维度</a>
+        <a href="AI与文化传播.html">AI赋能文化传播</a>
+        <a href="#" class="active">青年视角下的文化传播</a>
+    </nav>
+
+    <div class="container">
+        <section class="intro-section">
+            <h2>青年：中华文化传播的生力军</h2>
+            <p>当代中国青年是文化创新与传播的中坚力量，是连接传统与未来的重要桥梁。在文化自信的时代背景下，青年群体正以创造者、传播者、守护者的多重角色参与中华文化的传承与创新。他们既是文化的接收者，更是文化的建设者与传播者，肩负着推动中华文化现代表达与国际传播的重要使命。</p>
+
+            <div class="quote-box">
+                <p>"青年是整个社会力量中最积极、最有生气的力量，国家的希望在青年，民族的未来在青年。"</p>
+                <div class="quote-author">——习近平总书记</div>
+            </div>
+        </section>
+
+        <div class="tabs">
+            <div class="tab-nav">
+                <button class="tab-btn active" data-tab="tab1">国潮现象解析</button>
+                <button class="tab-btn" data-tab="tab2">青年文化观念</button>
+                <button class="tab-btn" data-tab="tab3">创新表达方式</button>
+                <button class="tab-btn" data-tab="tab4">挑战与对策</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-panel active" id="tab1">
+                    <h3>国潮现象：青年文化自觉的时代表达</h3>
+                    <p>"国潮"是近年来中国青年群体对本土文化的再认识与创新表达，反映了年轻一代对中华文化的自觉认同与创新传播。国潮既有商业包装的一面，也有文化自信的深层内涵。</p>
+
+                    <div class="trend-grid">
+                        <div class="trend-card">
+                            <div class="trend-card-badge">热点</div>
+                            <div class="trend-card-img" style="background-image: url('img/汉服.jpg');"></div>
+                            <div class="trend-card-body">
+                                <h4>汉服复兴运动</h4>
+                                <p>从小众爱好到社会现象，汉服复兴展现了青年群体对传统服饰文化的重新认同。通过社交媒体推广和线下活动，汉服已成为青年彰显文化自信的重要载体。</p>
+                            </div>
+                        </div>
+
+                        <div class="trend-card">
+                            <div class="trend-card-img" style="background-image: url('img/中国游戏.jpg');"></div>
+                            <div class="trend-card-body">
+                                <h4>中国风游戏出海</h4>
+                                <p>以《原神》《黑神话：悟空》为代表的中国风游戏通过融合传统文化元素与现代游戏设计，获得全球玩家认可，实现了文化输出与商业成功的双赢。</p>
+                            </div>
+                        </div>
+
+                        <div class="trend-card">
+                            <div class="trend-card-img" style="background-image: url('img/国货.jpg');"></div>
+                            <div class="trend-card-body">
+                                <h4>国货品牌崛起</h4>
+                                <p>李宁、完美日记等品牌通过融入传统文化元素，赢得了年轻消费者的认同。青年群体对国货的支持体现了文化自信与消费升级的双重转变。</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-box">
+                        <p>"国潮不仅是一种商业现象，更是青年文化认同的表达。真正的国潮应超越表层符号，深入传统文化的精神内核，实现创造性转化。"</p>
+                        <div class="quote-author">——《当代青年文化研究报告》</div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab2">
+                    <h3>青年的文化观念与态度转变</h3>
+                    <p>当代中国青年对待传统文化的态度正经历从"疏离"到"亲近"，从"被动接受"到"主动探索"的转变。这一转变既是文化自信的体现，也是全球化背景下文化认同的自觉选择。</p>
+
+                    <div style="display: flex; gap: 2rem; margin-top: 1.5rem;">
+                        <div style="flex: 1; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                            <h4>文化认知的变化</h4>
+                            <ul>
+                                <li>从<span class="highlight">单向接受</span>转向<span class="highlight">互动探索</span></li>
+                                <li>从<span class="highlight">被动灌输</span>转向<span class="highlight">主动建构</span></li>
+                                <li>从<span class="highlight">崇拜西方</span>转向<span class="highlight">理性看待</span></li>
+                                <li>从<span class="highlight">排斥传统</span>转向<span class="highlight">创新融合</span></li>
+                            </ul>
+                        </div>
+                        <div style="flex: 1; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                            <h4>文化参与的新形式</h4>
+                            <ul>
+                                <li>社交媒体文化内容创作与分享</li>
+                                <li>文化社区的线上线下互动</li>
+                                <li>沉浸式文化体验与参与式学习</li>
+                                <li>跨文化交流中的文化自信展示</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem;">
+                        <h4>青年文化态度调查</h4>
+                        <div class="survey-results">
+                            <p>根据2023年全国高校青年文化态度调查：</p>
+                            <ul>
+                                <li>87%的大学生认为"传统文化是中华民族的宝贵财富"</li>
+                                <li>65%的青年表示"经常主动了解和学习传统文化"</li>
+                                <li>83%的受访青年认可"中华优秀传统文化是我文化自信的重要来源"</li>
+                                <li>76%的青年表示对"中西文化融合创新"持积极态度</li>
+                                <li>62%的青年认为"科技是文化传承创新的重要手段"</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="quote-box">
+                        <p>"青年对传统文化的态度正在发生积极转变，但这种转变不是简单的'复古'，而是基于现代视角的再理解与再创造。"</p>
+                        <div class="quote-author">——《Z世代文化认同研究报告》</div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab3">
+                    <h3>创新表达：青年文化传播的新路径</h3>
+                    <p>当代青年群体正在通过多元化的表达方式赋能中华文化的现代传播，他们既是技术的原住民，也是文化的创新者，正在构建起传统与现代、本土与全球之间的桥梁。</p>
+
+                    <div style="margin-top: 2rem;">
+                        <h4>青年文化传播的四大创新路径</h4>
+                        <div class="trend-grid">
+                            <div class="trend-card">
+                                <div class="trend-card-img" style="background-image: url('https://via.placeholder.com/400x200?text=跨界融合');"></div>
+                                <div class="trend-card-body">
+                                    <h4>跨界融合表达</h4>
+                                    <p>青年创作者打破艺术形式边界，将传统文化元素与现代艺术形式（如嘻哈音乐、街舞、涂鸦艺术等）结合，创造出既有文化深度又有时代特色的新表现形式。</p>
+                                    <p><strong>案例：</strong> "说唱故宫"文化IP、传统戏曲与现代舞台技术融合的"新国风"演出</p>
+                                </div>
+                            </div>
+
+                            <div class="trend-card">
+                                <div class="trend-card-img" style="background-image: url('https://via.placeholder.com/400x200?text=数字创意');"></div>
+                                <div class="trend-card-body">
+                                    <h4>数字创意实践</h4>
+                                    <p>借助AI、VR、AR等数字技术，青年创作者将传统文化以数字艺术形式重构，创造沉浸式体验与交互式内容，使传统文化突破时空限制。</p>
+                                    <p><strong>案例：</strong> 虚拟现实中的《清明上河图》、AI生成的《千里江山图》新解读</p>
+                                </div>
+                            </div>
+
+                            <div class="trend-card">
+                                <div class="trend-card-img" style="background-image: url('https://via.placeholder.com/400x200?text=社交传播');"></div>
+                                <div class="trend-card-body">
+                                    <h4>社交化知识传播</h4>
+                                    <p>青年内容创作者通过短视频、播客等新媒体形式，以生动活泼的方式讲述传统文化知识，使枯燥的文化内容变得易于理解和传播。</p>
+                                    <p><strong>案例：</strong> B站文化区UP主、抖音"文博达人"、知识类podcast</p>
+                                </div>
+                            </div>
+
+                            <div class="trend-card">
+                                <div class="trend-card-img" style="background-image: url('https://via.placeholder.com/400x200?text=生活美学');"></div>
+                                <div class="trend-card-body">
+                                    <h4>生活化美学实践</h4>
+                                    <p>青年群体将传统文化审美融入日常生活设计，从服饰、居家到饮食、旅行，构建具有中国特色的现代生活美学体系。</p>
+                                    <p><strong>案例：</strong> 新中式生活方式社区、传统节气文创产品、国风穿搭博主</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="margin-top: 2rem; background-color: #f8f9fa; padding: 1.5rem; border-radius: 8px;">
+                        <h4>青年创新传播的价值与影响</h4>
+                        <ul>
+                            <li><strong>解构传统与现代的二元对立</strong> - 青年创作实践证明传统文化可以与现代表达形式相互赋能</li>
+                            <li><strong>拓展文化传播的受众面</strong> - 创新表达方式使传统文化触达更广泛的国内外受众</li>
+                            <li><strong>重构文化身份认同</strong> - 青年通过创造性实践重新定义和建构当代中国文化身份</li>
+                            <li><strong>促进文化产业升级</strong> - 青年创意为文化产业注入新活力，催生新业态</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab4">
+                    <h3>挑战与对策：青年文化传播的思考</h3>
+                    <p>在推动中华文化传播的过程中，青年群体面临着多重挑战，同时也在积极探索解决方案。</p>
+
+                    <div class="challenges-solutions">
+                        <div class="cs-card">
+                            <div class="cs-card-header">
+                                <h4>挑战一：文化深度不足</h4>
+                            </div>
+                            <div class="cs-card-body">
+                                <p><strong>表现：</strong> 部分"国潮"现象停留在表层符号，缺乏对传统文化内涵的深入理解</p>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>加强传统文化通识教育，提升青年文化素养</li>
+                                    <li>建立专业指导机制，邀请文化学者参与创意过程</li>
+                                    <li>建设文化元素数据库，提供准确权威的文化知识支持</li>
+                                </ul>
+                                <p><strong>青年行动：</strong> "文化寻根"社团、传统经典研习小组</p>
+                            </div>
+                        </div>
+
+                        <div class="cs-card">
+                            <div class="cs-card-header">
+                                <h4>挑战二：跨文化传播障碍</h4>
+                            </div>
+                            <div class="cs-card-body">
+                                <p><strong>表现：</strong> 中华文化国际传播面临语言、文化背景差异等障碍</p>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>运用AI翻译技术，优化多语言内容呈现</li>
+                                    <li>关注文化语境转换，避免文化误读</li>
+                                    <li>讲好中国故事，找准文化共鸣点</li>
+                                </ul>
+                                <p><strong>青年行动：</strong> 国际文化交流项目、中外学生文化对话活动</p>
+                            </div>
+                        </div>
+
+                        <div class="cs-card">
+                            <div class="cs-card-header">
+                                <h4>挑战三：商业化与原真性平衡</h4>
+                            </div>
+                            <div class="cs-card-body">
+                                <p><strong>表现：</strong> 过度商业化可能导致传统文化异化，失去原真性</p>
+                                <p><strong>解决方案：</strong></p>
+                                <ul>
+                                    <li>建立文化创意伦理规范，平衡商业价值与文化价值</li>
+                                    <li>强化文化创意的学术支持与专业指导</li>
+                                    <li>培养青年对传统文化的责任感与使命感</li>
+                                </ul>
+                                <p><strong>青年行动：</strong> 文化创意伦理讨论会、"有温度的商业"探索</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="quote-box" style="margin-top: 2rem;">
+                        <p>"青年既是文化的继承者，也是文化的创新者。我们应该既尊重传统，又不拘泥于传统；既借鉴外来，又不盲从外来。只有这样，才能真正担起新时代赋予的文化使命。"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="interactive-section card-section">
+            <h2>中华文化知识测验</h2>
+            <p>测试您对中华传统文化与现代传播的了解程度：</p>
+
+            <div class="quiz-container">
+                <div class="quiz-question">
+                    <h3>1. 以下哪项不属于中国非物质文化遗产？</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">京剧</div>
+                        <div class="quiz-option" data-correct="false">中医针灸</div>
+                        <div class="quiz-option" data-correct="true">芭蕾舞</div>
+                        <div class="quiz-option" data-correct="false">剪纸</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>2. "国潮"现象的兴起反映了年轻一代的什么心态变化？</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">单纯复古怀旧</div>
+                        <div class="quiz-option" data-correct="true">文化自信增强与创新表达</div>
+                        <div class="quiz-option" data-correct="false">排斥西方文化</div>
+                        <div class="quiz-option" data-correct="false">追求奢侈品消费</div>
+                    </div>
+                </div>
+
+                <div class="quiz-question">
+                    <h3>3. 在中华文化的国际传播中，以下哪种方式最能体现"文明互鉴"理念？</h3>
+                    <div class="quiz-options">
+                        <div class="quiz-option" data-correct="false">单向输出中国文化符号</div>
+                        <div class="quiz-option" data-correct="false">全盘接受外来文化影响</div>
+                        <div class="quiz-option" data-correct="true">在平等对话中寻找文化共鸣</div>
+                        <div class="quiz-option" data-correct="false">强调文化差异与独特性</div>
+                    </div>
+                </div>
+
+                <button id="quiz-submit" style="background-color: #3f5efb; color: white; border: none; padding: 10px 20px; border-radius: 5px; margin-top: 20px; cursor: pointer;">提交答案</button>
+
+                <div class="quiz-result" id="quiz-result"></div>
+            </div>
+        </section>
+
+        <section class="comment-section card-section">
+            <h2>分享您的观点</h2>
+            <p>您如何看待青年在中华文化传播中的角色？有哪些创新实践值得分享？</p>
+
+            <div class="comment-form">
+                <textarea id="comment-input" rows="4" placeholder="请输入您的看法..."></textarea>
+                <div>
+                    <input type="text" id="name-input" placeholder="您的昵称" style="padding: 8px; margin-right: 10px; width: 200px; border: 1px solid #ddd; border-radius: 4px;">
+                    <button id="comment-submit">提交评论</button>
+                </div>
+            </div>
+
+            <div class="comments-container">
+                <h3>最新评论</h3>
+                <div id="comments-list">
+                    <div class="comment">
+                        <strong>文化爱好者</strong>
+                        <p>我认为青年应该更多了解传统文化的内涵，而不只是停留在表面符号。真正的文化自信来自于对自身文化的深刻理解。</p>
+                    </div>
+                    <div class="comment">
+                        <strong>数字创意人</strong>
+                        <p>我在尝试用AR技术让古籍"活"起来，让用户可以与古代场景互动。科技确实能为传统文化注入新活力！</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 文化自信与文明交流互鉴 | 科技赋能视角</p>
+        <p>更多内容: <a href="文化自信的双维度.html" style="color: #fc466b;">文化自信双维度</a> | <a href="AI与文化传播.html" style="color: #fc466b;">AI赋能文化传播</a></p>
+    </footer>
+
+    <script>
+        // 标签页切换功能
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // 为当前按钮添加active类
+                button.classList.add('active');
+
+                // 隐藏所有内容面板
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
+                // 显示对应的内容面板
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // 知识测验功能
+        document.getElementById('quiz-submit').addEventListener('click', () => {
+            let score = 0;
+            let total = document.querySelectorAll('.quiz-question').length;
+
+            // 获取用户选择并计算分数
+            document.querySelectorAll('.quiz-question').forEach(question => {
+                const selectedOption = question.querySelector('.quiz-option.selected');
+                if (selectedOption && selectedOption.getAttribute('data-correct') === 'true') {
+                    score++;
+                }
+            });
+
+            // 显示结果
+            const resultElement = document.getElementById('quiz-result');
+            resultElement.style.display = 'block';
+
+            if (score === total) {
+                resultElement.style.backgroundColor = '#d4edda';
+                resultElement.style.color = '#155724';
+                resultElement.innerHTML = `<p>太棒了！您答对了所有 ${total} 个问题！您对中华文化有很深的了解。</p>`;
+            } else if (score >= total / 2) {
+                resultElement.style.backgroundColor = '#fff3cd';
+                resultElement.style.color = '#856404';
+                resultElement.innerHTML = `<p>不错！您答对了 ${score} 个问题（共 ${total} 题）。继续加油！</p>`;
+            } else {
+                resultElement.style.backgroundColor = '#f8d7da';
+                resultElement.style.color = '#721c24';
+                resultElement.innerHTML = `<p>您答对了 ${score} 个问题（共 ${total} 题）。建议多了解一些中华文化知识哦！</p>`;
+            }
+        });
+
+        // 选择题选项点击
+        document.querySelectorAll('.quiz-option').forEach(option => {
+            option.addEventListener('click', () => {
+                // 移除同组中其他选项的选中状态
+                const parent = option.parentElement;
+                parent.querySelectorAll('.quiz-option').forEach(opt => {
+                    opt.classList.remove('selected');
+                });
+
+                // 为当前选项添加选中状态
+                option.classList.add('selected');
+            });
+        });
+
+        // 评论提交功能
+        document.getElementById('comment-submit').addEventListener('click', () => {
+            const commentText = document.getElementById('comment-input').value.trim();
+            const userName = document.getElementById('name-input').value.trim() || '匿名用户';
+
+            if (commentText) {
+                // 创建新评论元素
+                const newComment = document.createElement('div');
+                newComment.className = 'comment';
+                newComment.innerHTML = `
+                    <strong>${userName}</strong>
+                    <p>${commentText}</p>
+                `;
+
+                // 添加到评论列表
+                document.getElementById('comments-list').prepend(newComment);
+
+                // 清空输入框
+                document.getElementById('comment-input').value = '';
+                document.getElementById('name-input').value = '';
+
+                alert('评论已提交，感谢您的参与！');
+            } else {
+                alert('请输入评论内容');
+            }
+        });
+    </script>
+</body>
+</html>

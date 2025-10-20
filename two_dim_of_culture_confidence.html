@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文化自信的双维度：立足自身根脉与面向世界开放</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: "Microsoft YaHei", sans-serif;
+        }
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #e73c7e, #23a6d5, #23d5ab);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            padding: 1rem 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 1.5rem;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        nav a:hover, nav a.active {
+            background-color: #555;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .intro-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        /* 新增：统一的卡片式节(section)样式，供各页面主要内容区复用 */
+        .card-section {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            margin-bottom: 2rem;
+        }
+        .quote-box {
+            background-color: #f8f9fa;
+            border-left: 4px solid #23a6d5;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+        }
+        .tab-container {
+            margin: 2rem 0;
+        }
+        .tab-buttons {
+            display: flex;
+            border-bottom: 2px solid #ddd;
+        }
+        .tab-btn {
+            background: none;
+            border: none;
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        .tab-btn.active {
+            color: #23a6d5;
+            border-bottom: 2px solid #23a6d5;
+        }
+        .tab-content {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .tab-panel {
+            display: none;
+        }
+        .tab-panel.active {
+            display: block;
+        }
+        .dual-columns {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .column {
+            flex: 1;
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+        .footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        .highlight {
+            background-color: #fff3cd;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+        }
+        .card {
+            margin-bottom: 1.5rem;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .card-header {
+            background-color: #23a6d5;
+            color: white;
+            padding: 1rem;
+        }
+        .card-body {
+            background-color: white;
+            padding: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .dual-columns {
+                flex-direction: column;
+            }
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+            nav a {
+                margin: 0.5rem 0;
+            }
+            .tab-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>文化自信的双维度</h1>
+        <p>立足自身根脉与面向世界开放的辩证关系</p>
+    </header>
+
+    <nav>
+        <a href="#" class="active">文化自信双维度</a>
+        <a href="AI与文化传播.html">AI赋能文化传播</a>
+        <a href="青年与文化传播.html">青年视角下的文化传播</a>
+    </nav>
+
+    <div class="container">
+        <section class="intro-section">
+            <h2>文化自信的内涵与双重维度</h2>
+            <p>文化自信是一个民族、一个国家以及一个政党对自身文化价值的充分肯定和积极践行，是对自身文化生命力的坚定信念。在全球化背景下，文化自信展现为两个相互依存的维度：<span class="highlight">立足自身文化根脉</span>与<span class="highlight">面向世界开放交流</span>。</p>
+
+            <div class="quote-box">
+                <p>"坚定文化自信，推动中华优秀传统文化创造性转化、创新性发展"</p>
+                <small>——习近平总书记</small>
+            </div>
+        </section>
+
+        <div class="tab-container">
+            <div class="tab-buttons">
+                <button class="tab-btn active" data-tab="tab1">立足自身根脉</button>
+                <button class="tab-btn" data-tab="tab2">面向世界开放</button>
+                <button class="tab-btn" data-tab="tab3">辩证关系探讨</button>
+            </div>
+
+            <div class="tab-content">
+                <div class="tab-panel active" id="tab1">
+                    <h3>立足自身文化根脉的意义</h3>
+                    <p>立足自身文化根脉是文化自信的基础，它强调对中华优秀传统文化的传承与弘扬，包括：</p>
+                    <ul>
+                        <li>深入挖掘中华文明五千年历史长河中积淀的优秀传统文化</li>
+                        <li>保护与传承非物质文化遗产，确保文化基因的延续</li>
+                        <li>系统梳理中华文化的思想精华和道德精髓</li>
+                        <li>建立健全传统文化保护机制和传承体系</li>
+                    </ul>
+
+                    <div class="card-section">
+                        <div class="card-header">
+                            <h4>案例：故宫数字化保护与传承</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>故宫博物院通过数字化技术对文物进行精确扫描和建模，建立了庞大的数字文物库，既保存了珍贵文物的完整信息，又使这些文化瑰宝能通过互联网走进千家万户，实现了传统文化保护与现代传播的完美结合。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab2">
+                    <h3>面向世界开放的重要性</h3>
+                    <p>面向世界开放是文化自信的外在表现，它强调文明交流互鉴的开放姿态：</p>
+                    <ul>
+                        <li>主动参与全球文化对话，讲好中国故事</li>
+                        <li>以开放心态吸收世界优秀文化成果</li>
+                        <li>推动中华文化的创造性转化和创新性发展</li>
+                        <li>构建人类命运共同体文化基础</li>
+                    </ul>
+
+                    <div class="card-section">
+                        <div class="card-header">
+                            <h4>案例：中国文化"走出去"战略</h4>
+                        </div>
+                        <div class="card-body">
+                            <p>通过海外孔子学院、中国文化年、国际艺术节等多种形式，中国文化正以更加开放包容的姿态走向世界。特别是在数字技术支持下，中华文化元素通过网络游戏、数字艺术、网络文学等载体，以年轻人喜闻乐见的方式实现了跨文化传播。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-panel" id="tab3">
+                    <h3>立足根脉与开放交流的辩证关系</h3>
+                    <p>文化自信的两个维度并非对立，而是辩证统一的关系：</p>
+
+                    <div class="dual-columns">
+                        <div class="column">
+                            <h4>二者互补的表现</h4>
+                            <ul>
+                                <li>根脉为开放提供稳固基础和核心认同</li>
+                                <li>开放为根脉注入活力和创新动力</li>
+                                <li>只有具备文化自觉才能真正实现平等交流</li>
+                                <li>闭门造车将导致文化固化与落后</li>
+                            </ul>
+                        </div>
+                        <div class="column">
+                            <h4>科技赋能下的新平衡</h4>
+                            <ul>
+                                <li>数字技术为传统文化提供新的表达形式</li>
+                                <li>AI等新兴技术打破时空限制，促进文化交流</li>
+                                <li>科技创新与文化传承并行不悖</li>
+                                <li>通过技术实现文化创造性转化与创新性发展</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="quote-box">
+                        <p>"不忘本来、吸收外来、面向未来，更好构筑中国精神、中国价值、中国力量。"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section class="interactive-section card-section">
+            <h2>互动思考</h2>
+            <p>您如何看待文化自信中的这两个维度？请思考以下问题：</p>
+
+            <div class="card-section">
+                <div class="card-header">
+                    <h3>思考问题</h3>
+                </div>
+                <div class="card-body">
+                    <ol>
+                        <li>在数字全球化时代，如何更好地平衡文化的"根脉性"与"开放性"？</li>
+                        <li>您认为中华文化走向世界面临的最大挑战是什么？</li>
+                        <li>技术如何帮助传统文化既保持其本真性又实现创新发展？</li>
+                    </ol>
+                    <div style="margin-top: 20px;">
+                        <textarea id="thoughts" rows="4" style="width: 100%; padding: 10px; border-radius: 5px; border: 1px solid #ddd;" placeholder="在此分享您的看法..."></textarea>
+                        <button onclick="alert('感谢您的分享！')" style="background-color: #23a6d5; color: white; border: none; padding: 10px 15px; border-radius: 5px; margin-top: 10px; cursor: pointer;">提交想法</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 文化自信与文明交流互鉴 | 科技赋能视角</p>
+        <p>更多内容: <a href="AI与文化传播.html" style="color: #23a6d5;">AI赋能文化传播</a> | <a href="青年与文化传播.html" style="color: #23a6d5;">青年视角下的文化传播</a></p>
+    </footer>
+
+    <script>
+        // 标签页切换功能
+        document.querySelectorAll('.tab-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                // 移除所有按钮的active类
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                // 为当前按钮添加active类
+                button.classList.add('active');
+
+                // 隐藏所有内容面板
+                document.querySelectorAll('.tab-panel').forEach(panel => {
+                    panel.classList.remove('active');
+                });
+
+                // 显示对应的内容面板
+                const tabId = button.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
